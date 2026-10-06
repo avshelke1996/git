@@ -1,26 +1,24 @@
-pipeline{
-    agent any 
+pipeline {
+    agent any
     stages{
-        stage('Build'){
-            steps{
-                echo "a1"
-                sleep 10
+        stage('clean'){
+            steps {
+                sh "chmod -R 777 /var/www/html"
+                sh "rm -rf /var/www/html/index.html"
+                sleep 5
             }
-           
         }
-        stage('Clean'){
-            steps{
-                echo "b1"
-                sleep 10
+        stage('pasting in /var/www/html'){
+            steps {
+                sh "cp -r index.html /var/www/html"
+                sleep 5
             }
-           
         }
-        stage('Test1'){
-            steps{
-                echo "b1"
-                sleep 10
+        stage('launch'){
+            steps {
+               sh "chmod -R 777 /var/www/html"
+              echo "launch url now"
             }
-           
         }
     }
 }
