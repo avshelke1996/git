@@ -1,17 +1,26 @@
 pipeline{
-  agent any{
-    stages {
-      stage ('build') {
-        steps {
-          echo "download httpd here"
+    agent any 
+    stages{
+        stage('Build'){
+            steps{
+                echo "a1"
+                sleep 10
+            }
+           
         }
-      }
-      stage ('clean') {
-        steps {
-          echo "clean code here"
+        stage('Clean'){
+            steps{
+                echo "b1"
+                sleep 10
+            }
+           
         }
-      }
-        
+        stage('Test'){
+            steps{
+                echo "b1"
+                sleep 10
+            }
+           
+        }
     }
-  }
 }
